@@ -4,9 +4,15 @@ on:
     - cron: "0 0 * * *"
   # Manual triggers with workflow_dispatch
   workflow_dispatch:
+  
+  push:
+    branches:
+    - main
 jobs:
   update-gist:
     runs-on: ubuntu-latest
+    environment:
+      name: env
     steps:
       - uses: actions/checkout@master
       - name: Update gist
